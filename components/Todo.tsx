@@ -11,6 +11,7 @@ type Props = {
   content: string
   id: string
   type: TodoType
+  isMobile?: boolean
 }
 
 type OpenEditDrawerCb = () => void
@@ -69,6 +70,7 @@ const Todo = (props: Props) => {
         isOpen={isOpen} 
         manualOpenCb={openDrawer} 
         manualCloseCb={closeDrawer} 
+        isMobile={props.isMobile}
       />
       <Menu 
         mode='horizontal' 

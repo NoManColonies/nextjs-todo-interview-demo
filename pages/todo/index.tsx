@@ -31,7 +31,7 @@ function useOnSelected(cb: (value: TodoType) => void) {
         break
       }
       case 'done': {
-        cb(TodoType.TODO)
+        cb(TodoType.DONE)
         break
       }
       default:
@@ -111,7 +111,10 @@ const TodoList: NextPage = () => {
             </Menu.Item>
           </Menu.SubMenu>
         </Menu>
-        <Title className={`${styles['ant-typography']}`} level={2}>Tasks</Title>
+        <Title 
+          className={`${styles['ant-typography']}`} 
+          level={2}
+        >Tasks</Title>
       </div>
       <div className={isMobile() ? 'px-5' : 'px-10'}>
         <Search onChange={setSearch} />
@@ -123,7 +126,14 @@ const TodoList: NextPage = () => {
           <div className={`${isMobile() ? 'h-[65vh] ' : 'h-[75vh]' }overflow-auto`}>
             {todoList
               .map(todo => 
-                <Todo title={todo.title} content={todo.content} key={todo.id} id={todo.id} type={todo.type} />
+                <Todo 
+                  title={todo.title} 
+                  content={todo.content} 
+                  key={todo.id} 
+                  id={todo.id} 
+                  type={todo.type} 
+                  isMobile={isMobile()} 
+                />
               )}
           </div> :
           <EmptyList description="Empty task" />
@@ -135,7 +145,14 @@ const TodoList: NextPage = () => {
           <div className={`${isMobile() ? 'h-[65vh] ' : 'h-[75vh]' }overflow-auto`}>
             {doingList
               .map(todo => 
-                <Todo title={todo.title} content={todo.content} key={todo.id} id={todo.id} type={todo.type} />
+                <Todo 
+                  title={todo.title} 
+                  content={todo.content} 
+                  key={todo.id} 
+                  id={todo.id} 
+                  type={todo.type} 
+                  isMobile={isMobile()} 
+                />
               )}
           </div> :
           <EmptyList description="No ongoing task left" />
@@ -147,7 +164,14 @@ const TodoList: NextPage = () => {
           <div className={`${isMobile() ? 'h-[65vh] ' : 'h-[75vh]' }overflow-auto`}>
             {doneList
               .map(todo => 
-                <Todo title={todo.title} content={todo.content} key={todo.id} id={todo.id} type={todo.type} />
+                <Todo 
+                  title={todo.title} 
+                  content={todo.content} 
+                  key={todo.id} 
+                  id={todo.id} 
+                  type={todo.type} 
+                  isMobile={isMobile()} 
+                />
               )}
           </div> :
           <EmptyList description="Empty completed task list" />
