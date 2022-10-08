@@ -1,0 +1,17 @@
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .anticon-plus-circle {
+    /* margin-bottom: 0 !important; */
+    position: absolute;
+    top: 0.75rem;
+    right: 1rem;
+  }
+
+  .todo {
+    @apply p-4 rounded-lg bg-[#fff] mt-4 w-full;
+    display: inline-block;
+    color: #4c4c4c;
+  }
+}

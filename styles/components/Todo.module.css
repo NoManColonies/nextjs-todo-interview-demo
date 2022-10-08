@@ -1,0 +1,15 @@
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .ant-typography {
+    /* margin-bottom: 0 !important; */
+    color: #4e4e4e !important;
+  }
+
+  .todo {
+    @apply p-4 rounded-lg bg-[#fff] mt-4 w-full;
+    display: inline-block;
+    color: #4c4c4c;
+  }
+}

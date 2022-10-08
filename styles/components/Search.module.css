@@ -1,0 +1,21 @@
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .anticon-search {
+    position: absolute;
+    color: #a2a3a3;
+    top: 1rem;
+    left: 1rem;
+  }
+
+  .search {
+    @apply p-3 pl-10 w-full bg-[#EDEDED] rounded-lg;
+    display: inline-block;
+    color: #a2a3a3;
+  }
+}
+
+.wrapper {
+  position: relative;
+}
