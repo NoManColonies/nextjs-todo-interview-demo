@@ -6,4 +6,28 @@
     margin-bottom: 0 !important;
     color: #4e4e4e !important;
   }
+
+  .ant-menu {
+    border-bottom: none !important;
+    /* padding: 0 8px !important; */
+    background: none !important;
+    color: #febd00 !important;
+    /* width: 1rem !important; */
+    /* background-color: transparent !important; */
+    font-size: 1.8rem;
+    height: 3rem;
+    width: 10rem;
+  }
+
+  .ant-menu-desktop {
+    display: none !important;
+  }
+
+  .ant-menu div {
+    color: #febd00 !important;
+  }
+
+  .ant-menu ::after {
+    border-bottom: none !important;
+  }
 }

@@ -5,6 +5,8 @@ import { RootState } from "../stores";
 import {
   addTodo,
   deleteTodo,
+  moveTodo,
+  MoveTodoContent,
   Todo,
   TodoContent,
   TodoEditContent,
@@ -18,11 +20,13 @@ export type TodoStates = {
 export type CreateTodoCb = (todo: TodoContent) => void;
 export type UpdateTodoCb = (todo: TodoEditContent) => void;
 export type DeleteTodoCb = (todo: string) => void;
+export type MoveTodoCb = (todo: MoveTodoContent) => void;
 
 export type TodoHandlers = {
   useCreateTodo: CreateTodoCb;
   useEditTodo: UpdateTodoCb;
   useDeleteTodo: DeleteTodoCb;
+  useMoveTodo: MoveTodoCb;
 };
 
 export function useTodo(): [TodoStates, TodoHandlers] {
@@ -41,11 +45,15 @@ export function useTodo(): [TodoStates, TodoHandlers] {
     (todo: string) => dispatch(deleteTodo(todo)),
     [dispatch]
   );
+  const useMoveTodo = useCallback(
+    (todo: MoveTodoContent) => dispatch(moveTodo(todo)),
+    [dispatch]
+  );
 
   const memorizedStates = useMemo(() => ({ todos }), [todos]);
   const memorizedCallbacks = useMemo(
-    () => ({ useCreateTodo, useEditTodo, useDeleteTodo }),
-    [useCreateTodo, useEditTodo, useDeleteTodo]
+    () => ({ useCreateTodo, useEditTodo, useDeleteTodo, useMoveTodo }),
+    [useCreateTodo, useEditTodo, useDeleteTodo, useMoveTodo]
   );
 
   return [memorizedStates, memorizedCallbacks];

@@ -1,0 +1,8 @@
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .ant-empty {
+    color: #a2a3a3 !important;
+  }
+}

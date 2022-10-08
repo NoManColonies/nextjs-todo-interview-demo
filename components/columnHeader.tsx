@@ -10,7 +10,7 @@ const ColumnHeader = (props: Props) => {
   return (
     <div className="bg-[#FDBD03] p-2 text-white rounded-lg relative">
       <div className="text-center">{props.title}</div>
-      <TodoDrawer type={props.type} />
+      <TodoDrawer type={props.type} editMode={false} />
     </div>
   )
 }

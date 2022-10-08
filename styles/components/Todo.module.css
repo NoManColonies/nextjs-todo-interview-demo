@@ -7,9 +7,27 @@
     color: #4e4e4e !important;
   }
 
+  .anticon-ellipsis {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+  }
+
+  .ant-menu {
+    position: absolute;
+    top: -0.5rem;
+    right: -0.5rem;
+    border-bottom: none !important;
+    padding: 0 8px !important;
+    background: none !important;
+    /* width: 1rem !important; */
+    /* background-color: transparent !important; */
+  }
+
   .todo {
     @apply p-4 rounded-lg bg-[#fff] mt-4 w-full;
     display: inline-block;
     color: #4c4c4c;
+    position: relative;
   }
 }
