@@ -11,35 +11,35 @@ import { AuthActionStatus } from "../stores/slices/user";
 const { Title } = Typography;
 
 const Login: NextPage = () => {
-  const [{ user, errorMessage, loginStatus }, { useLogin, useClearStatus }] = useAuth()
+  const [{ errorMessage, registerStatus }, { useRegister, useClearStatus: useClearRegisterStatus }] = useAuth()
   const router = useRouter()
 
   useEffect(() => {
-    switch (loginStatus) {
+    switch (registerStatus) {
       case AuthActionStatus.SUCCESS: {
-        if (user) 
-          message.success(`Welcome ${user.username}`, 3, useClearStatus)
-        router.replace('/todo')
+        message.success('Registration successful', 3, useClearRegisterStatus)
+        router.replace('/login')
         break
       }
       case AuthActionStatus.FAILURE: {
         if (errorMessage)
-          message.error(errorMessage, 3, useClearStatus)
+          message.error(errorMessage, 3, useClearRegisterStatus)
         break
       }
-      default:
+      default: {
         break
+      }
     }
-  }, [errorMessage, useClearStatus, loginStatus, router, user])
+  }, [errorMessage, registerStatus, useClearRegisterStatus, router])
 
   return (
     <Form 
-      name="login" 
+      name="register"
       className="flex justify-center items-center h-screen flex-col"
-      onFinish={useLogin}
+      onFinish={useRegister}
     >
       <Title className={styles['ant-typography']}>Todo list demo</Title>
-      <div className={`${styles['center-section']} h-[9rem]`}>
+      <div className="flex justify-between flex-col h-[12rem]">
         <Form.Item
           label=""
           name="username"
@@ -54,15 +54,33 @@ const Login: NextPage = () => {
         >
           <Input.Password placeholder="Password" />
         </Form.Item>
+        <Form.Item
+          label=""
+          name="confirm-password"
+          dependencies={['pasword']}
+          rules={[
+            { required: true, message: 'Please input your password!' },
+            ({ getFieldValue }) => ({
+            validator(_, value) {
+              if (!value || getFieldValue('password') === value) {
+                return Promise.resolve();
+              }
+              return Promise.reject(new Error('The two passwords that you entered do not match!'));
+            },
+          }),
+          ]}
+        >
+          <Input.Password placeholder="Confirm password" />
+        </Form.Item>
         <div className={`${styles['center-section']} h-[3rem]`}>
-          <Link href="/register">
-            <a className="mb-1">not have account? click here to register</a>
+          <Link href="/login">
+            <a className="mb-1">already have account? click here to login</a>
           </Link>
           <Form.Item>
             <Button 
-              className={styles['ant-btn']} 
+              className={styles['ant-btn']}
               htmlType="submit"
-            >Login</Button>
+            >Register</Button>
           </Form.Item>
         </div>
       </div>

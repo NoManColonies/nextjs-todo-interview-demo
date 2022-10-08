@@ -6,16 +6,12 @@
     margin-bottom: 2rem !important;
   }
   .ant-btn {
-    @apply bg-[#FDBD03] rounded text-white w-full;
+    @apply mt-5 bg-[#FDBD03] rounded text-white;
     border: none;
   }
   .ant-btn:hover,
   .ant-btn:focus,
   .ant-btn:active {
-    @apply bg-[#FDD503] rounded text-white;
+    @apply mt-5 bg-[#FDD503] rounded text-white;
   }
-}
-
-.center-section {
-  @apply flex justify-between flex-col;
 }
