@@ -1,7 +1,7 @@
 import { Typography, Menu } from 'antd'
 import { EllipsisOutlined, DeleteOutlined, EditOutlined, CheckCircleOutlined, ExclamationCircleOutlined, ClockCircleOutlined } from '@ant-design/icons';
 import styles from '../styles/components/Todo.module.css'
-import { TodoType } from '../stores/todo';
+import { TodoType } from '../stores/slices/todo';
 import { DeleteTodoCb, MoveTodoCb, useTodo } from '../hooks/todo';
 import TodoDrawer from './Drawer';
 import { useCallback, useState } from 'react';

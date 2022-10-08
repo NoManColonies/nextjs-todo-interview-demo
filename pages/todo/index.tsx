@@ -6,7 +6,7 @@ import Search from "../../components/search";
 import { useTodo } from "../../hooks/todo";
 import ColumnHeader from "../../components/columnHeader";
 import Todo from "../../components/Todo";
-import { TodoType } from "../../stores/todo";
+import { TodoType } from "../../stores/slices/todo";
 import { useAuth } from "../../hooks/auth";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import EmptyList from "../../components/EmptyList";
